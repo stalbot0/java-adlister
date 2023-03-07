@@ -22,7 +22,7 @@ public class CountServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         String resetCounter = request.getParameter("reset");
 
-        if(Objects.equals(resetCounter, "true")){
+        if(resetCounter != null && resetCounter.equalsIgnoreCase("true")){
             hitCount = 0;
 //            String resettingCount = "Resetting Hit Count!";
 //            out.println(resettingCount);
