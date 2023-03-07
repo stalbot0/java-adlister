@@ -4,9 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
 @WebServlet(name = "countServlet", urlPatterns = "/count")
 public class CountServlet extends HttpServlet {
@@ -22,7 +19,7 @@ public class CountServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         String resetCounter = request.getParameter("reset");
 
-        if(resetCounter != null && resetCounter.equalsIgnoreCase("true")){
+        if (resetCounter != null && resetCounter.equalsIgnoreCase("true")) {
             hitCount = 0;
 //            String resettingCount = "Resetting Hit Count!";
 //            out.println(resettingCount);
