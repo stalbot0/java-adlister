@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello")
+@WebServlet(name = "helloWorldServlet", urlPatterns = "/hello")
 public class HelloWorldServlet extends HttpServlet {
 
 //    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -20,7 +20,6 @@ public class HelloWorldServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        hitCount++;
         PrintWriter out = response.getWriter();
         String name = request.getParameter("name");
 
@@ -29,9 +28,5 @@ public class HelloWorldServlet extends HttpServlet {
             return;
         }
         out.println("<h1>Hello " + name +  "!</h1>");
-
-        String hitCounter = "Total # hits: ";
-        String count = request.getParameter("count");
-
     }
 }
