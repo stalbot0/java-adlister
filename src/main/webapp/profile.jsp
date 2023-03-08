@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <%@include file="partials/head.jsp" %>
+    <title>Profile</title>
 </head>
 <body>
 <%@include file="partials/nav.jsp"%>

@@ -12,6 +12,9 @@
 <head>
     <title>Login</title>
     <%@include file="partials/head.jsp" %>
+<%--    <jsp:include page="partials/head.jsp">--%>
+<%--        --%>
+<%--    </jsp:include>--%>
 </head>
 <body>
 <%@include file="partials/nav.jsp" %>
