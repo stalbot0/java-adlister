@@ -7,5 +7,5 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav>
-
+    <div>insert nav here</div>
 </nav>
