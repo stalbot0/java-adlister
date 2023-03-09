@@ -15,13 +15,14 @@ public class PizzaOrderServlet extends HttpServlet {
         String address = request.getParameter("address");
 
 
-        System.out.format("Crust Type: %s%n", crust);
+        System.out.format("Crust: %s%n", crust);
         System.out.format("Sauce: %s%n", sauce);
         System.out.format("Size: %s%n", size);
         System.out.print("Toppings: ");
         for (String topping : toppings) {
-            System.out.format("%s%n", topping);
+            System.out.format("%s | ", topping);
         }
+        System.out.println();
         System.out.format("Address: %s", address);
     }
 }
