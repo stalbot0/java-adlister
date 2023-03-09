@@ -10,7 +10,7 @@
     <h1 class="text-center bg-warning">ORDER A PIZZA PLZ</h1>
 </header>
 <div class="container w-50 my-3">
-    <form action="${pageContext.request.contextPath}/pizza-order" method="POST">
+    <form action="/pizza-order" method="POST">
         <div class="container my-2">
             <h2 class="text-center">Choose Your Crust</h2>
             <select class="form-select" aria-label="crust options" id="pizza-crust-type" name="crust">
