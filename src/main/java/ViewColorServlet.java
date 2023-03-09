@@ -9,7 +9,7 @@ import java.io.IOException;
 public class ViewColorServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String color = request.getParameter("color");
-        System.out.println(color);
+//        System.out.println(color);
         request.setAttribute("color", color);
         request.getRequestDispatcher("/viewcolor.jsp").forward(request, response);
     }
