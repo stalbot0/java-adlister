@@ -8,6 +8,8 @@
 </head>
 <body>
 <h1>outcome</h1>
+<%--use JSTL if-else for message = correct or message = incorrect--%>
+<%--choose, when, otherwise--%>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

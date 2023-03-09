@@ -24,9 +24,9 @@ public class GuessServlet extends HttpServlet {
         if(userGuessNum < 1 || userGuessNum > 3) {
             response.sendRedirect("/guess.jsp");
         } else if(userGuessNum == randomNum) {
-            response.sendRedirect("/outcome.jsp");
+            response.sendRedirect("/correct.jsp");
         } else {
-            response.sendRedirect("/outcome.jsp");
+            response.sendRedirect("/incorrect.jsp");
         }
     }
 }
