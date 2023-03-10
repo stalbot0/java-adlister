@@ -2,13 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<%
-    String username = request.getParameter("username");
-    String password = request.getParameter("password");
-    if (username != null && username.equals("admin") && password != null && password.equals("password")) {
-        response.sendRedirect("/profile.jsp");
-    }
-%>
 <head>
     <title>Login</title>
     <%@include file="partials/head.jsp" %>
@@ -19,7 +12,7 @@
 <body>
 <%@include file="partials/nav.jsp" %>
 <h1>Login Page</h1>
-    <form action="login.jsp" method="POST">
+    <form action="/login" method="POST">
         <div class="w-25">
             <label for="username" class="form-control">Username</label>
             <input id="username" name="username" placeholder="Enter your username" type="text">
