@@ -14,7 +14,10 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         if (username != null && username.equals("admin") && password != null && password.equals("password")) {
+//            posts to /login page but shows the profile.jsp. We would want to create a redirect that would send us to /profile and the profile servlet would take care of the request/response
+//            response.sendRedirect("/profile");
             request.getRequestDispatcher("/profile.jsp").forward(request, response);
+            return;
         } else {
             response.sendRedirect("/login");
         }
