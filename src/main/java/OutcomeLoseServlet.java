@@ -9,10 +9,13 @@ import java.io.IOException;
 public class OutcomeLoseServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userNum = request.getParameter("guess-number");
-        System.out.println(userNum);
-        String loseMsg = String.format("You lost :/ You guessed the number %s", userNum);
-        System.out.println(loseMsg);
-        request.setAttribute("lose", loseMsg);
+        String compNum = request.getParameter("computer-number");
+
+        String loseMsg = String.format("You lost :/ You guessed the number %s while my number was %s", userNum, compNum);
+
+        request.setAttribute("message", loseMsg);
+        request.setAttribute("outcome", "lose");
+
         request.getRequestDispatcher("/outcome.jsp").forward(request, response);
     }
 }

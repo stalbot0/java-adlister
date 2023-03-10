@@ -17,18 +17,15 @@ public class GuessServlet extends HttpServlet {
         int userGuessInt = Integer.parseInt(userGuess);
         int max = 3;
         int min = 1;
-//        int randomNum = (int)Math.floor(Math.random() * (max - min + 1) + min);
-        int randomNum = 2;
-        //both userguess and randomnum are working
+        int randomNum = (int)Math.floor(Math.random() * (max - min + 1) + min);
+//        int randomNum = 2;
 
         if(userGuessInt < 1 || userGuessInt > 3) {
-            response.sendRedirect("/guess.jsp");
+            response.sendRedirect("/guess");
         } else if(userGuessInt == randomNum) {
-            request.setAttribute("outcome", "win");
-            response.sendRedirect("/correct");
+            response.sendRedirect("/correct?guess-number=" + userGuess + "&computer-number=" + randomNum);
         } else {
-            request.setAttribute("outcome", "lose");
-            response.sendRedirect("/incorrect");
+            response.sendRedirect("/incorrect?guess-number=" + userGuess + "&computer-number=" + randomNum);
         }
     }
 }

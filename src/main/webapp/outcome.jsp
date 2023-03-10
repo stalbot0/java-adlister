@@ -7,16 +7,15 @@
     <title>Title</title>
 </head>
 <body>
-<h1>outcome</h1>
 <%--use JSTL if-else for message = correct or message = incorrect--%>
 <%--choose, when, otherwise--%>
 <c:choose>
   <c:when test="${outcome.equals('win')}">
-    <h1>${win}</h1>
+    <h3 class="container text-center">${message}</h3>
   </c:when>
 
   <c:otherwise>
-    <h1>${lose}</h1>
+    <h3 class="container text-center">${message}</h3>
   </c:otherwise>
 </c:choose>
 

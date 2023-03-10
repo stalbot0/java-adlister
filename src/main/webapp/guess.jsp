@@ -10,7 +10,7 @@
 <div class="container">
     <form method="post" action="/guess">
         <div class="text-center my-1">
-            <label for="guess-number">I'm thinking of a number between 1 and 3. Take a guess!</label>
+            <label for="guess-number" class="fs-3"><strong>I'm thinking of a number between 1 and 3. Take a guess!</strong></label>
         </div>
         <div class="text-center my-1">
             <input type="text" id="guess-number" name="guess-number" placeholder="Enter your guess" class="text-center">
