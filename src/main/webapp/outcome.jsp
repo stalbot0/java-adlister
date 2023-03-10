@@ -11,7 +11,7 @@
 <%--use JSTL if-else for message = correct or message = incorrect--%>
 <%--choose, when, otherwise--%>
 <c:choose>
-  <c:when test="${param.pick-number == randomNum}">
+  <c:when test="${outcome.equals('win')}">
     <h1>${win}</h1>
   </c:when>
 

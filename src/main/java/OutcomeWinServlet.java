@@ -9,7 +9,9 @@ import java.io.IOException;
 public class OutcomeWinServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userNum = request.getParameter("guess-number");
+        System.out.println(userNum);
         String winMsg = String.format("You won! You guessed the number %s", userNum);
+        System.out.println(winMsg);
         request.setAttribute("win", winMsg);
         request.getRequestDispatcher("/outcome.jsp").forward(request, response);
     }

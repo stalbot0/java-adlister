@@ -14,18 +14,20 @@ public class GuessServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userGuess = request.getParameter("guess-number");
-        int userGuessNum = Integer.parseInt(userGuess);
+        int userGuessInt = Integer.parseInt(userGuess);
         int max = 3;
         int min = 1;
 //        int randomNum = (int)Math.floor(Math.random() * (max - min + 1) + min);
         int randomNum = 2;
         //both userguess and randomnum are working
 
-        if(userGuessNum < 1 || userGuessNum > 3) {
+        if(userGuessInt < 1 || userGuessInt > 3) {
             response.sendRedirect("/guess.jsp");
-        } else if(userGuessNum == randomNum) {
+        } else if(userGuessInt == randomNum) {
+            request.setAttribute("outcome", "win");
             response.sendRedirect("/correct");
         } else {
+            request.setAttribute("outcome", "lose");
             response.sendRedirect("/incorrect");
         }
     }
