@@ -19,21 +19,24 @@ public class ListAdsDao implements Ads {
                 "Car for Sale",
                 "2005 Mustang GT for sale. Terrible condition.",
                 2500,
-                new User("Stephen Talbot", 28, "2672752474")
+//                new User("Stephen Talbot", 28, "2672752474"),
+                1
         ));
         ads.add(new Ad(
                 2,
                 "Barbie Dolls for Sale",
                 "Mint condition Barbie Dolls for sale from 1998.",
                 10000,
-                new User("Shawn Hardin", 21, "3215551000")
+//                new User("Shawn Hardin", 21, "3215551000"),
+                2
         ));
         ads.add(new Ad(
                 3,
                 "Looking for refrigerator",
                 "In need of a sick fridge for all of my monster and redbull duuuuude",
                 123,
-                new User("Tyler Whitman", 23, "6108093987")
+//                new User("Tyler Whitman", 23, "6108093987"),
+                1
         ));
         return ads;
     }

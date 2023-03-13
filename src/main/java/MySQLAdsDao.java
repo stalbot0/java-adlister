@@ -16,7 +16,7 @@ public class MySQLAdsDao implements Ads{
                     config.getPassword()
             );
         } catch (SQLException e) {
-            throw new RuntimeException("error connecting to database", e);
+            throw new RuntimeException(e.getMessage(), e);
         }
     }
 
@@ -24,7 +24,7 @@ public class MySQLAdsDao implements Ads{
         List<Ad> ads = new ArrayList<>();
         try {
             Statement stmt = connection.createStatement();
-            String selectQuery = "SELECT * FROM ymir_stephen.ads";
+            String selectQuery = "SELECT * FROM ymir_stephen.ads;";
             ResultSet rs = stmt.executeQuery(selectQuery);
 
             while(rs.next()) {
@@ -32,13 +32,26 @@ public class MySQLAdsDao implements Ads{
                         rs.getInt("id"),
                         rs.getString("title"),
                         rs.getString("description"),
-                        rs.getDouble("price")
-//                        rs.getObject("user")
+                        rs.getInt("price"),
+                        rs.getInt("user_id")
                     ));
             }
             return ads;
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public Long insert(Ad ad) {
+        try {
+            Statement stmt = connection.createStatement();
+            String sql = String.format("INSERT INTO ads(title, description, user_id) VALUES ('%s', '%s', '%d');", ad.getTitle(), ad.getDescription(), ad.getUserId());
+            stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+            return rs.getLong(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
         }
     }
 

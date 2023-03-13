@@ -13,12 +13,13 @@ public class Ad implements Serializable {
     private String title;
     private String description;
     private int price;
-    private User user;
+//    private User user;
+    private long userId;
 
-    public Ad(int id, String title, String description, double price) {
+    public Ad(int id, String title, String description, int price) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.price = (int) price;
+        this.price = price;
     }
 }
