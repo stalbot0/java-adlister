@@ -10,9 +10,9 @@
 <ul>
     <c:forEach var="ad" items="${ads}">
         <li class="container-fluid my-4">
-            <h3>Title: ${ad.title}, <strong>${ad.price}</strong></h3>
+            <h3>${ad.title} || Asking: <strong>$${ad.price}</strong></h3>
             <div>Description: ${ad.description}</div>
-            <div>Please contact ${ad.user.name} at ${ad.user.phoneNumber} for more information</div>
+<%--            <div>Please contact ${ad.user.name} at ${ad.user.phoneNumber} for more information</div>--%>
         </li>
     </c:forEach>
 </ul>
