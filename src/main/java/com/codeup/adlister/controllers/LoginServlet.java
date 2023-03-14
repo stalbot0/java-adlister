@@ -11,7 +11,6 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null) {
-            System.out.format("doGet1 in LoginServlet");
             response.sendRedirect("/profile");
             return;
         }
