@@ -22,4 +22,10 @@ public class Ad implements Serializable {
         this.description = description;
         this.price = price;
     }
+
+    public Ad(int id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
 }

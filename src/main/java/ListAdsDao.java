@@ -40,6 +40,10 @@ public class ListAdsDao implements Ads {
         ));
         return ads;
     }
+
+    public Long insert(Ad ad) {
+        return null;
+    }
 }
 
 
