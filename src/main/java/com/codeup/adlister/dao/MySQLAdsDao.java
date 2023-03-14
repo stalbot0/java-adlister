@@ -55,7 +55,8 @@ public class MySQLAdsDao implements Ads {
         return "INSERT INTO ads(user_id, title, description) VALUES "
             + "(" + ad.getUserId() + ", "
             + "'" + ad.getTitle() +"', "
-            + "'" + ad.getDescription() + "')";
+            + "'" + ad.getDescription() + "', "
+            + "" + ad.getPrice() + ")";
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
@@ -63,7 +64,8 @@ public class MySQLAdsDao implements Ads {
             rs.getLong("id"),
             rs.getLong("user_id"),
             rs.getString("title"),
-            rs.getString("description")
+            rs.getString("description"),
+            rs.getInt("price")
         );
     }
 
