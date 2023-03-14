@@ -52,11 +52,11 @@ public class MySQLAdsDao implements Ads {
     }
 
     private String createInsertQuery(Ad ad) {
-        return "INSERT INTO ads(user_id, title, description) VALUES "
+        return "INSERT INTO ads(user_id, title, description, price) VALUES "
             + "(" + ad.getUserId() + ", "
             + "'" + ad.getTitle() +"', "
             + "'" + ad.getDescription() + "', "
-            + "" + ad.getPrice() + ")";
+            + ad.getPrice() + ")";
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
