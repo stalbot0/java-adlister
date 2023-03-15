@@ -1,5 +1,7 @@
 package com.codeup.adlister.controllers;
 
+import com.mysql.cj.Session;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
