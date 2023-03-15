@@ -20,18 +20,18 @@ public class RegisterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO: ensure the submitted information is valid
-        String userName = request.getParameter("username");
+        String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        boolean invalidInput = userName.isEmpty() || email.isEmpty() || password.isEmpty();
+        boolean invalidInput = username.isEmpty() || email.isEmpty() || password.isEmpty();
 
         // TODO: create a new user based off of the submitted information
         if(invalidInput) {
             response.sendRedirect("/register");
             return;
         }
-        User user = new User(1, userName, email, password);
+        User user = new User(1, username, email, password);
         Users dao = DaoFactory.getUsersDao();
         dao.insert(user);
 
