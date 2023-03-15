@@ -22,12 +22,22 @@ public class MySQLUsersDao implements Users {
     }
 
     public User findByUsername(String username) {
-        return null;
+        try {
+            String findQry = "SELECT * FROM users WHERE name = ?";
+            PreparedStatement statement = connection.prepareStatement(findQry);
+            statement.setString(1, username);
+            ResultSet rs = statement.executeQuery();
+            rs.next();
+            User user = extractUser(rs);
+            return user;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Long insert(User user) {
         try {
-            String insertQry = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
+            String insertQry = "INSERT INTO users(name, email, password) VALUES (?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(insertQry, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getEmail());
@@ -40,5 +50,14 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e) {
             throw new RuntimeException("Error registering a new user.", e);
         }
+    }
+
+    private User extractUser(ResultSet rs) throws SQLException {
+        return new User(
+                rs.getLong("id"),
+                rs.getString("name"),
+                rs.getString("email"),
+                rs.getString("password")
+        );
     }
 }

@@ -57,19 +57,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-//    private String createInsertQuery(Ad ad) {
-//        String insertQry = "INSERT INTO ads(user_id, title, description, price) VALUES ? ? ?";
-//        try {
-//            PreparedStatement statement = connection.prepareStatement(insertQry);
-//            statement.setLong(1, ad.getUserId());
-//            statement.setString(2, ad.getTitle());
-//            statement.setString(3, ad.getDescription());
-//            statement.setInt(4, ad.getPrice());
-//        } catch (SQLException e) {
-//            throw new RuntimeException("error inserting query for Ad" + e.getMessage());
-//        }
-//    }
-
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
@@ -87,28 +74,4 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
-
-    //prepared statement check
-//    public boolean isValidLogin(String userName, String password) {
-//        PreparedStatement statement = null;
-//        try {
-//            statement = connection.prepareStatement("SELECT count (id) as count_id" +
-//            " FROM users " +
-//            " where name = ? " +
-//            " and password = ? ");
-//            statement.setString(1, userName);
-//            statement.setString(2, password);
-//
-//            ResultSet rs = statement.executeQuery("");
-//
-//            if(!rs.next()) {
-//                return false;
-//            }
-////            if(rs.next() > 0) {
-////
-////            }
-//        } catch (Exception e) {
-//            System.out.println(e + e.getMessage());
-//        }
-//    }
 }
