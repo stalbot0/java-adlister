@@ -31,7 +31,7 @@ public class MySQLUsersDao implements Users {
             User user = extractUser(rs);
             return user;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("error finding a user", e);
         }
     }
 
