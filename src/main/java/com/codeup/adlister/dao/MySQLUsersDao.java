@@ -3,6 +3,7 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
+import util.Password;
 
 import java.sql.*;
 
@@ -41,7 +42,7 @@ public class MySQLUsersDao implements Users {
             PreparedStatement statement = connection.prepareStatement(insertQry, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getEmail());
-            statement.setString(3, user.getPassword());
+            statement.setString(3, Password.hash(user.getPassword()));
 
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();

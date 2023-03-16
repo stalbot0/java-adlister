@@ -1,6 +1,8 @@
 package com.codeup.adlister.models;
 
 import lombok.*;
+import org.mindrot.jbcrypt.BCrypt;
+import util.Password;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +18,10 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public void setPassword(String password) {
+        this.password = Password.hash(password);
     }
 }
 
