@@ -37,10 +37,8 @@ public class LoginServlet extends HttpServlet {
         // TODO: make sure we find a user with that username
         Users uDao = DaoFactory.getUsersDao();
         User user = uDao.findByUsername(username);
-        System.out.println(user.getPassword());
-        System.out.println(Password.hash(password));
-        System.out.println(user.toString());
-
+        boolean hashOk = Password.check(password, Password.hash(password));
+        System.out.println("Hash ok?: " + hashOk);
 
         // TODO: check the submitted password against what you have in your database
         if (Password.check(password, user.getPassword())) {

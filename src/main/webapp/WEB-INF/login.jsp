@@ -27,5 +27,6 @@
 </div>
 
 <%@include file="partials/toggle-pw.jsp"%>
+<%@include file="partials/scripts.jsp"%>
 </body>
 </html>
