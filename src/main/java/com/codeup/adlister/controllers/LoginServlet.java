@@ -48,6 +48,8 @@ public class LoginServlet extends HttpServlet {
             passwordsMatch = true;
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
+        } else {
+            response.sendRedirect("/login");
         }
     }
 }
