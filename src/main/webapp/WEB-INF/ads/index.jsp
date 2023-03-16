@@ -13,9 +13,10 @@
     <h1>Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
+        <div class="col-md-6 my-5">
             <h2><c:out value="${ad.title}"></c:out></h2>
-            <p><c:out value="${ad.description}"></c:out></p>
+            <div><c:out value="${ad.description}"></c:out></div>
+            <div>Price: $<c:out value="${ad.price}"></c:out>USD</div>
         </div>
     </c:forEach>
 </div>

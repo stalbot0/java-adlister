@@ -28,11 +28,10 @@ public class MySQLUsersDao implements Users {
             PreparedStatement statement = connection.prepareStatement(findQry);
             statement.setString(1, username);
             ResultSet rs = statement.executeQuery();
-            rs.next();
             User user = extractUser(rs);
             return user;
         } catch (SQLException e) {
-            throw new RuntimeException("error finding a user", e);
+            throw new RuntimeException("Error at findByUsername method in UsersDao", e);
         }
     }
 
@@ -49,12 +48,12 @@ public class MySQLUsersDao implements Users {
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error registering a new user.", e);
+            throw new RuntimeException("Error at insert method in UsersDao ", e);
         }
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(

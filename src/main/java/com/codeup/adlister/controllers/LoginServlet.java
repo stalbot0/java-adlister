@@ -41,8 +41,8 @@ public class LoginServlet extends HttpServlet {
         }
 
 //        checking the hash
-//        boolean hashOk = Password.check(password, Password.hash(password));
-//        System.out.println("Hash ok?: " + hashOk);
+        boolean hashOk = Password.check(password, Password.hash(password));
+        System.out.println("Hash ok?: " + hashOk);
 
         if (Password.check(password, user.getPassword())) {
             passwordsMatch = true;
