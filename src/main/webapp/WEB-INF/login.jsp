@@ -22,7 +22,7 @@
                    id="togglePassword"></i>
             </div>
         </div>
-        <input type="submit" class="btn btn-primary btn-block" value="Log In">
+        <input type="submit" class="btn btn-primary btn-block my-3" value="Log In">
     </form>
 </div>
 
