@@ -23,8 +23,8 @@ public class MySQLUsersDao implements Users {
     }
 
     public User findByUsername(String username) {
+        String findQry = "SELECT * FROM users WHERE name = ? LIMIT 1";
         try {
-            String findQry = "SELECT * FROM users WHERE name = ?";
             PreparedStatement statement = connection.prepareStatement(findQry);
             statement.setString(1, username);
             ResultSet rs = statement.executeQuery();
@@ -54,6 +54,9 @@ public class MySQLUsersDao implements Users {
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
+        if (! rs.next()) {
+            return null;
+        }
         return new User(
                 rs.getLong("id"),
                 rs.getString("name"),
