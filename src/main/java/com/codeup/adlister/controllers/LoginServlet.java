@@ -33,21 +33,21 @@ public class LoginServlet extends HttpServlet {
 
         boolean passwordsMatch = false;
 
-        // TODO: find a record in your database that matches the submitted password
-        // TODO: make sure we find a user with that username
-        Users uDao = DaoFactory.getUsersDao();
-        User user = uDao.findByUsername(username);
-        boolean hashOk = Password.check(password, Password.hash(password));
-        System.out.println("Hash ok?: " + hashOk);
+        User user = DaoFactory.getUsersDao().findByUsername(username);
 
-        // TODO: check the submitted password against what you have in your database
+        if (user == null) {
+            response.sendRedirect("/login");
+            return;
+        }
+
+//        checking the hash
+//        boolean hashOk = Password.check(password, Password.hash(password));
+//        System.out.println("Hash ok?: " + hashOk);
+
         if (Password.check(password, user.getPassword())) {
             passwordsMatch = true;
-            // TODO: store the logged in user object in the session, instead of just the username
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
-        } else {
-            response.sendRedirect("/login");
         }
     }
 }

@@ -20,20 +20,12 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: ensure the submitted information is valid
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        User user = DaoFactory.getUsersDao().findByUsername(username);
 
         boolean invalidInput = username.isEmpty() || email.isEmpty() || password.isEmpty();
 
-        if (user == null) {
-            response.sendRedirect("/login");
-            return;
-        }
-
-        // TODO: create a new user based off of the submitted information
         if(invalidInput) {
             response.sendRedirect("/register");
             return;
@@ -42,7 +34,7 @@ public class RegisterServlet extends HttpServlet {
         //hash the password to insert into the user to then get inserted into the DB
         password = Password.hash(password);
 
-        user = new User(1, username, email, password);
+        User user = new User(1, username, email, password);
         Users dao = DaoFactory.getUsersDao();
         dao.insert(user);
 
