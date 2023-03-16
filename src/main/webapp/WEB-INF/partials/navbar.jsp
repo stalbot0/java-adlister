@@ -3,23 +3,23 @@
     <div class="container-fluid bg-light">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Adlister</a>
+            <a class="navbar-brand fs-1" href="/ads">Adlister</a>
         </div>
-        <div class="nav navbar-nav navbar-right">
+        <div class="nav">
             <c:choose>
                 <c:when test="${sessionScope.user == null}">
-                    <ul>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Register For Our Site</a></li>
-                    </ul>
+                    <div class="d-flex justify-content-evenly">
+                        <div class="mx-4"><a href="/login">Login</a></div>
+                        <div class="mx-4"><a href="/register">Register For Our Site</a></div>
+                    </div>
                 </c:when>
                 <c:otherwise>
-                    <ul>
-                        <li><a href="/profile">Profile</a></li>
-                        <li><a href="/ads">View Ads</a></li>
-                        <li><a href="/ads/create">Create An Ad</a></li>
-                        <li><a href="/logout">Logout</a></li>
-                    </ul>
+                    <div class="d-flex justify-content-evenly">
+                        <div class="mx-4"><a href="/profile">Profile</a></div>
+                        <div class="mx-4"><a href="/ads">View Ads</a></div>
+                        <div class="mx-4"><a href="/ads/create">Create An Ad</a></div>
+                        <div class="mx-4"><a href="/logout">Logout</a></div>
+                    </div>
                 </c:otherwise>
 
             </c:choose>
