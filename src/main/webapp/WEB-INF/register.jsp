@@ -22,11 +22,17 @@
             <label for="password">Password</label>
             <div class="d-flex">
                 <input id="password" name="password" class="form-control">
-                <i class="bi bi-eye-slash fs-1 mx-2"
-                   id="togglePassword"></i>
+                <i class="bi bi-eye-slash fs-1 mx-2"></i>
             </div>
         </div>
-        <input type="submit" class="btn btn-block btn-primary">
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="d-flex">
+                <input id="confirmPassword" name="confirmPassword" class="form-control">
+                <i class="bi bi-eye-slash fs-1 mx-2"></i>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-block btn-primary my-4">
     </form>
 </div>
 

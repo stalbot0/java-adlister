@@ -11,6 +11,7 @@
                     <div class="d-flex justify-content-evenly">
                         <div class="mx-4"><a href="/login">Login</a></div>
                         <div class="mx-4"><a href="/register">Register For Our Site</a></div>
+                        <div class="mx-4"><a href="/ads">View Ads</a></div>
                     </div>
                 </c:when>
                 <c:otherwise>
